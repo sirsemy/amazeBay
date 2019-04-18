@@ -1,0 +1,199 @@
+[ {
+  "total_listing_count" : "45",
+  "eBay_listing_count" : "19",
+  "total_eBay_price" : "9225.09003829956",
+  "avarage_eBay_price" : "205.00200085110134",
+  "amazon_listing_count" : "26",
+  "total_amazon_price" : "11215.87000656128",
+  "avarage_amazon_price" : "249.24155570136176",
+  "best_lister" : "bhtower@sbcglobal.net"
+} ][ {
+  "y_month" : null,
+  "eBay_listing_count" : "4",
+  "total_eBay_price" : "1675.6400337219238",
+  "avarage_eBay_price" : "418.91000843048096",
+  "amazon_listing_count" : "6",
+  "total_amazon_price" : "2416.5299758911133",
+  "avarage_amazon_price" : "402.75499598185223",
+  "best_lister" : "jfmulder@me.com"
+}, {
+  "y_month" : "2017 April",
+  "eBay_listing_count" : "1",
+  "total_eBay_price" : "538.9299926757812",
+  "avarage_eBay_price" : "538.9299926757812",
+  "amazon_listing_count" : "0",
+  "total_amazon_price" : "0.0",
+  "avarage_amazon_price" : null,
+  "best_lister" : "krueger@yahoo.com"
+}, {
+  "y_month" : "2017 August",
+  "eBay_listing_count" : "2",
+  "total_eBay_price" : "488.8600158691406",
+  "avarage_eBay_price" : "244.4300079345703",
+  "amazon_listing_count" : "0",
+  "total_amazon_price" : "0.0",
+  "avarage_amazon_price" : null,
+  "best_lister" : "mallanmba@mac.com"
+}, {
+  "y_month" : "2017 December",
+  "eBay_listing_count" : "1",
+  "total_eBay_price" : "416.260009765625",
+  "avarage_eBay_price" : "416.260009765625",
+  "amazon_listing_count" : "1",
+  "total_amazon_price" : "900.9500122070312",
+  "avarage_amazon_price" : "900.9500122070312",
+  "best_lister" : "mhanoh@verizon.net"
+}, {
+  "y_month" : "2017 February",
+  "eBay_listing_count" : "1",
+  "total_eBay_price" : "850.1099853515625",
+  "avarage_eBay_price" : "850.1099853515625",
+  "amazon_listing_count" : "0",
+  "total_amazon_price" : "0.0",
+  "avarage_amazon_price" : null,
+  "best_lister" : "jipsen@hotmail.com"
+}, {
+  "y_month" : "2017 January",
+  "eBay_listing_count" : "1",
+  "total_eBay_price" : "766.6099853515625",
+  "avarage_eBay_price" : "766.6099853515625",
+  "amazon_listing_count" : "1",
+  "total_amazon_price" : "494.44000244140625",
+  "avarage_amazon_price" : "494.44000244140625",
+  "best_lister" : "wkrebs@comcast.net"
+}, {
+  "y_month" : "2017 July",
+  "eBay_listing_count" : "1",
+  "total_eBay_price" : "94.70999908447266",
+  "avarage_eBay_price" : "94.70999908447266",
+  "amazon_listing_count" : "2",
+  "total_amazon_price" : "542.1800079345703",
+  "avarage_amazon_price" : "271.09000396728516",
+  "best_lister" : "mhanoh@verizon.net"
+}, {
+  "y_month" : "2017 June",
+  "eBay_listing_count" : "0",
+  "total_eBay_price" : "0.0",
+  "avarage_eBay_price" : null,
+  "amazon_listing_count" : "1",
+  "total_amazon_price" : "369.25",
+  "avarage_amazon_price" : "369.25",
+  "best_lister" : "cderoove@aolcom"
+}, {
+  "y_month" : "2017 March",
+  "eBay_listing_count" : "1",
+  "total_eBay_price" : "860.77001953125",
+  "avarage_eBay_price" : "860.77001953125",
+  "amazon_listing_count" : "0",
+  "total_amazon_price" : "0.0",
+  "avarage_amazon_price" : null,
+  "best_lister" : "dburrows@live.com"
+}, {
+  "y_month" : "2017 May",
+  "eBay_listing_count" : "0",
+  "total_eBay_price" : "0.0",
+  "avarage_eBay_price" : null,
+  "amazon_listing_count" : "3",
+  "total_amazon_price" : "444.03998947143555",
+  "avarage_amazon_price" : "148.01332982381186",
+  "best_lister" : "jfmulder@me.com"
+}, {
+  "y_month" : "2017 November",
+  "eBay_listing_count" : "0",
+  "total_eBay_price" : "0.0",
+  "avarage_eBay_price" : null,
+  "amazon_listing_count" : "2",
+  "total_amazon_price" : "1074.989990234375",
+  "avarage_amazon_price" : "537.4949951171875",
+  "best_lister" : "bhtower@sbcglobal.net"
+}, {
+  "y_month" : "2017 October",
+  "eBay_listing_count" : "1",
+  "total_eBay_price" : "530.8200073242188",
+  "avarage_eBay_price" : "530.8200073242188",
+  "amazon_listing_count" : "2",
+  "total_amazon_price" : "1194.1900024414062",
+  "avarage_amazon_price" : "597.0950012207031",
+  "best_lister" : "cderoove@aolcom"
+}, {
+  "y_month" : "2017 September",
+  "eBay_listing_count" : "0",
+  "total_eBay_price" : "0.0",
+  "avarage_eBay_price" : null,
+  "amazon_listing_count" : "1",
+  "total_amazon_price" : "988.52001953125",
+  "avarage_amazon_price" : "988.52001953125",
+  "best_lister" : "josem@aol.com"
+}, {
+  "y_month" : "2018 April",
+  "eBay_listing_count" : "1",
+  "total_eBay_price" : "655.8699951171875",
+  "avarage_eBay_price" : "655.8699951171875",
+  "amazon_listing_count" : "1",
+  "total_amazon_price" : "223.82000732421875",
+  "avarage_amazon_price" : "223.82000732421875",
+  "best_lister" : "jgwang@aol.com"
+}, {
+  "y_month" : "2018 August",
+  "eBay_listing_count" : "0",
+  "total_eBay_price" : "0.0",
+  "avarage_eBay_price" : null,
+  "amazon_listing_count" : "1",
+  "total_amazon_price" : "29.93000030517578",
+  "avarage_amazon_price" : "29.93000030517578",
+  "best_lister" : "mallanmba@mac.com"
+}, {
+  "y_month" : "2018 December",
+  "eBay_listing_count" : "1",
+  "total_eBay_price" : "545.8200073242188",
+  "avarage_eBay_price" : "545.8200073242188",
+  "amazon_listing_count" : "0",
+  "total_amazon_price" : "0.0",
+  "avarage_amazon_price" : null,
+  "best_lister" : "josem@aol.com"
+}, {
+  "y_month" : "2018 January",
+  "eBay_listing_count" : "1",
+  "total_eBay_price" : "107.52999877929688",
+  "avarage_eBay_price" : "107.52999877929688",
+  "amazon_listing_count" : "0",
+  "total_amazon_price" : "0.0",
+  "avarage_amazon_price" : null,
+  "best_lister" : "wkrebs@comcast.net"
+}, {
+  "y_month" : "2018 June",
+  "eBay_listing_count" : "1",
+  "total_eBay_price" : "633.1099853515625",
+  "avarage_eBay_price" : "633.1099853515625",
+  "amazon_listing_count" : "2",
+  "total_amazon_price" : "730.25",
+  "avarage_amazon_price" : "365.125",
+  "best_lister" : "bhtower@sbcglobal.net"
+}, {
+  "y_month" : "2018 March",
+  "eBay_listing_count" : "1",
+  "total_eBay_price" : "183.0399932861328",
+  "avarage_eBay_price" : "183.0399932861328",
+  "amazon_listing_count" : "2",
+  "total_amazon_price" : "1571.4400024414062",
+  "avarage_amazon_price" : "785.7200012207031",
+  "best_lister" : "josem@aol.com"
+}, {
+  "y_month" : "2018 November",
+  "eBay_listing_count" : "1",
+  "total_eBay_price" : "877.010009765625",
+  "avarage_eBay_price" : "877.010009765625",
+  "amazon_listing_count" : "0",
+  "total_amazon_price" : "0.0",
+  "avarage_amazon_price" : null,
+  "best_lister" : "jgwang@aol.com"
+}, {
+  "y_month" : "2018 September",
+  "eBay_listing_count" : "0",
+  "total_eBay_price" : "0.0",
+  "avarage_eBay_price" : null,
+  "amazon_listing_count" : "1",
+  "total_amazon_price" : "235.33999633789062",
+  "avarage_amazon_price" : "235.33999633789062",
+  "best_lister" : "jipsen@hotmail.com"
+} ]
