@@ -1,0 +1,8 @@
+#surefire
+#Thu Apr 11 10:42:31 CEST 2019
+maven.ext.class.path=C\:\\Program Files\\NetBeans 8.2\\java\\maven-nblib\\netbeans-eventspy.jar
+user.dir=C\:\\Users\\Sirsemy\\Google Drive\\Programoz\u00E1s\\NetBeansProjects\\dataRequestApi
+file.encoding=UTF-8
+localRepository=C\:\\Users\\Sirsemy\\.m2\\repository
+basedir=C\:\\Users\\Sirsemy\\Google Drive\\Programoz\u00E1s\\NetBeansProjects\\dataRequestApi
+test=sirsemy.datarequest.test.ListingValidatorTest

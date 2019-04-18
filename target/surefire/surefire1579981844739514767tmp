@@ -1,0 +1,12 @@
+#surefire
+#Thu Apr 04 16:47:48 CEST 2019
+jpda.address=51522
+maven.ext.class.path=C\:\\Program Files\\NetBeans 8.2\\java\\maven-nblib\\netbeans-eventspy.jar
+file.encoding=UTF-8
+jpda.listen=true
+forkMode=once
+user.dir=C\:\\Users\\Sirsemy\\Google Drive\\Programoz\u00E1s\\NetBeansProjects\\dataRequestApi
+localRepository=C\:\\Users\\Sirsemy\\.m2\\repository
+test=sirsemy.datarequest.test.AmazeBayRepositoryImplTest
+basedir=C\:\\Users\\Sirsemy\\Google Drive\\Programoz\u00E1s\\NetBeansProjects\\dataRequestApi
+maven.surefire.debug=-Xdebug -Xrunjdwp\:transport\=dt_socket,server\=n,address\=51522
