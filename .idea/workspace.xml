@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7c188dff-cafa-400b-8c44-6f7bc1211eee" name="Default Changelist" comment="The first working pack.">
+    <list default="true" id="7c188dff-cafa-400b-8c44-6f7bc1211eee" name="Default Changelist" comment="JUnit tests extend.">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/sirsemy/datarequest/test/ListingValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sirsemy/datarequest/test/ListingValidatorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sirsemy/datarequestapi/AmazeBayReaderWriter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sirsemy/datarequestapi/AmazeBayReaderWriter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/properties.ini" beforeDir="false" afterPath="$PROJECT_DIR$/properties.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.json" beforeDir="false" afterPath="$PROJECT_DIR$/report.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sirsemy/datarequestapi/AmazeBayReaderWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sirsemy/datarequestapi/AmazeBayReaderWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sirsemy/datarequestapi/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sirsemy/datarequestapi/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/sirsemy/datarequest/test/AmazeBayReaderWriterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sirsemy/datarequest/test/AmazeBayReaderWriterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/sirsemy/datarequest/test/AmazeBayReaderWriterTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/sirsemy/datarequest/test/AmazeBayReaderWriterTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/sirsemy/datarequest/test/ListingValidatorTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/sirsemy/datarequest/test/ListingValidatorTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testLog.csv" beforeDir="false" afterPath="$PROJECT_DIR$/testLog.csv" afterDir="false" />
     </list>
     <list id="29c3e823-1bb1-45f9-a10f-219fe91e6f19" name="Revert: Delete Dokumentáció.docx" comment="" />
@@ -28,20 +34,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sirsemy/datarequestapi/AmazeBayReaderWriter.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="291" column="29" lean-forward="true" selection-start-line="291" selection-start-column="29" selection-end-line="291" selection-end-column="29" />
+            <state relative-caret-position="-1013">
+              <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sirsemy/datarequestapi/AmazeBayReaderWriter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="287">
+              <caret line="285" column="91" selection-start-line="284" selection-start-column="12" selection-end-line="285" selection-end-column="91" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/sirsemy/datarequest/test/AmazeBayReaderWriterTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="366" column="51" selection-start-line="366" selection-start-column="51" selection-end-line="366" selection-end-column="51" />
+            <state relative-caret-position="157">
+              <caret line="386" column="46" selection-start-line="386" selection-start-column="46" selection-end-line="386" selection-end-column="46" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sirsemy/datarequestapi/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -73,12 +100,14 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/sirsemy/datarequestapi/ListingValidator.java" />
         <option value="$PROJECT_DIR$/src/test/java/sirsemy/datarequest/test/TestSuite.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/java/sirsemy/datarequestapi/ListingDAOException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sirsemy/datarequestapi/Main.java" />
         <option value="$PROJECT_DIR$/importLog.csv" />
-        <option value="$PROJECT_DIR$/src/main/java/sirsemy/datarequestapi/AmazeBayReaderWriter.java" />
         <option value="$PROJECT_DIR$/src/test/java/sirsemy/datarequest/test/ListingValidatorTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sirsemy/datarequestapi/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sirsemy/datarequestapi/AmazeBayReaderWriter.java" />
+        <option value="$PROJECT_DIR$/src/test/java/sirsemy/datarequest/test/AmazeBayReaderWriterTest.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -196,7 +225,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ListingValidatorTest.invalidMarketplaceNullTest">
+  <component name="RunManager" selected="JUnit.AmazeBayReaderWriterTest.uploadFileToFtpTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="sirsemy.datarequestapi.Main" />
       <module name="dataRequestApi" />
@@ -225,6 +254,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AmazeBayReaderWriterTest.uploadFileToFtpTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="dataRequestApi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sirsemy.datarequest.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="sirsemy.datarequest.test" />
+      <option name="MAIN_CLASS_NAME" value="sirsemy.datarequest.test.AmazeBayReaderWriterTest" />
+      <option name="METHOD_NAME" value="uploadFileToFtpTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ListingValidatorTest.invalidMarketplaceNullTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="dataRequestApi" />
       <extension name="coverage">
@@ -243,6 +288,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AmazeBayReaderWriterTest.uploadFileToFtpTest" />
         <item itemvalue="JUnit.ListingValidatorTest.invalidMarketplaceNullTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.AmazeBayReaderWriterTest" />
@@ -319,7 +365,14 @@
       <option name="project" value="LOCAL" />
       <updated>1556031345829</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="JUnit tests extend.">
+      <created>1556031391506</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1556031391506</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -335,15 +388,39 @@
     <history-entry file="ListingValidatorTest_invalidMarketplaceNullTest - 2019.04.23 at 16h 51m 37s.xml">
       <configuration name="ListingValidatorTest.invalidMarketplaceNullTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="AmazeBayReaderWriterTest_uploadFileToFtpTest - 2019.04.23 at 16h 59m 17s.xml">
+      <configuration name="AmazeBayReaderWriterTest.uploadFileToFtpTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AmazeBayReaderWriterTest_uploadFileToFtpTest - 2019.04.23 at 17h 01m 31s.xml">
+      <configuration name="AmazeBayReaderWriterTest.uploadFileToFtpTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AmazeBayReaderWriterTest_uploadFileToFtpTest - 2019.04.23 at 17h 07m 24s.xml">
+      <configuration name="AmazeBayReaderWriterTest.uploadFileToFtpTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AmazeBayReaderWriterTest_uploadFileToFtpTest - 2019.04.23 at 17h 11m 12s.xml">
+      <configuration name="AmazeBayReaderWriterTest.uploadFileToFtpTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AmazeBayReaderWriterTest_uploadFileToFtpTest - 2019.04.23 at 17h 12m 47s.xml">
+      <configuration name="AmazeBayReaderWriterTest.uploadFileToFtpTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="10397000" />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="736" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4974359" visible="true" weight="0.18932039" />
-      <window_info id="Structure" order="1" sideWeight="0.50256413" side_tool="true" visible="true" weight="0.18932039" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4955157" visible="true" weight="0.18932039" />
+      <window_info id="Structure" order="1" sideWeight="0.5044843" side_tool="true" weight="0.18932039" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -351,13 +428,13 @@
       <window_info id="Favorites" order="6" sideWeight="0.5012346" side_tool="true" weight="0.18122977" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49919093" weight="0.23013245" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49919093" weight="0.2615894" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39900663" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3294702" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="8" sideWeight="0.49838188" visible="true" weight="0.35430464" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49838188" visible="true" weight="0.24337748" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.3294702" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50161815" side_tool="true" weight="0.36092716" />
@@ -423,7 +500,8 @@
     <MESSAGE value="Checking the close of streams." />
     <MESSAGE value="The first working pack." />
     <MESSAGE value="JSON writing upgrade." />
-    <option name="LAST_COMMIT_MESSAGE" value="JSON writing upgrade." />
+    <MESSAGE value="JUnit tests extend." />
+    <option name="LAST_COMMIT_MESSAGE" value="JUnit tests extend." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/test/java/sirsemy/datarequest/test/TestSuite.java">
@@ -435,25 +513,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nbproject/project.properties">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-235" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sirsemy/datarequestapi/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="53" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sirsemy/datarequestapi/ListingDAOException.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -515,13 +574,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sirsemy/datarequestapi/AmazeBayReaderWriter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="291" column="29" lean-forward="true" selection-start-line="291" selection-start-column="29" selection-end-line="291" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/sirsemy/datarequest/test/MonthlyQueryTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -546,10 +598,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sirsemy/datarequestapi/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sirsemy/datarequestapi/AmazeBayReaderWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="285" column="91" selection-start-line="284" selection-start-column="12" selection-end-line="285" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/commons-net/commons-net/3.6/commons-net-3.6.jar!/org/apache/commons/net/ftp/FTPClient.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="866" column="24" selection-start-line="866" selection-start-column="24" selection-end-line="866" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="44" column="21" selection-start-line="44" selection-start-column="21" selection-end-line="44" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1071" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/sirsemy/datarequest/test/AmazeBayReaderWriterTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="366" column="51" selection-start-line="366" selection-start-column="51" selection-end-line="366" selection-end-column="51" />
+        <state relative-caret-position="157">
+          <caret line="386" column="46" selection-start-line="386" selection-start-column="46" selection-end-line="386" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1013">
+          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
         </state>
       </provider>
     </entry>

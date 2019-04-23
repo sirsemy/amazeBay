@@ -280,13 +280,12 @@ public class AmazeBayReaderWriter {
         }
     }
     
-    public void uploadToFtp() throws ListingDAOException {
+    public void uploadToFtp(String fileToFTP) throws ListingDAOException {
         try {
             client.connect(prop.getProperty("FTPurl"));
             client.login(prop.getProperty("FTPusername"), prop.getProperty("FTPpassword"));
-            String filename = prop.getProperty("Filename.report");
-            fis = new FileInputStream(filename);
-            client.storeFile(filename, fis);
+            fis = new FileInputStream(fileToFTP);
+            client.storeFile(fileToFTP, fis);
             client.logout();
         } catch (IOException e) {
             throw new ListingDAOException("Error during the FTP connection.");

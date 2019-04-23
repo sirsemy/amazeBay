@@ -1,5 +1,14 @@
 package sirsemy.datarequest.test;
 
+import org.apache.commons.net.ftp.FTPClient;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import sirsemy.datarequestapi.AmazeBayReaderWriter;
+import sirsemy.datarequestapi.Listing;
+import sirsemy.datarequestapi.ListingDAOException;
+
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -8,12 +17,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Scanner;
-import org.apache.commons.net.ftp.FTPClient;
-import org.junit.*;
-import static org.junit.Assert.*;
-import sirsemy.datarequestapi.AmazeBayReaderWriter;
-import sirsemy.datarequestapi.Listing;
-import sirsemy.datarequestapi.ListingDAOException;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 /**
  *
@@ -368,19 +374,22 @@ public class AmazeBayReaderWriterTest {
 //        }
 //    }
     
-//    @Test
-//    public void uploadFileToFtpTest(){
-//        try {
-//            String filename = prop.getProperty("testReport.json");
-//            fis = new FileInputStream(filename);
-//            client.storeFile(filename, fis);
-//            assertEquals("The file isn't on the FTP.", "213-STAT 213 End. ", client
+    @Test
+    public void uploadFileToFtpTest() throws ListingDAOException {
+        AmazeBayReaderWriter testRW = new AmazeBayReaderWriter("properties.ini");
+        try (BufferedWriter bfw = new BufferedWriter(new FileWriter(prop.getProperty("Filename.testReport")))) {
+            bfw.write("It needs some content.");
+            testRW.uploadToFtp(prop.getProperty("Filename.testReport"));
+            client.connect(prop.getProperty("FTPurl"));
+            client.login(prop.getProperty("FTPusername"), prop.getProperty("FTPpassword"));
+            assertThat(client.deleteFile());
+//            assertEquals("The file isn't on the FTP.", "213-STAT\n213 End.\n", client
 //                    .getStatus(prop.getProperty("FTPurl") + "/testReport.json"));
-//        } catch (IOException e) {
-//            throw new ListingDAOException("");
-//        }
-//        
-//    }
+        } catch (IOException e) {
+            throw new ListingDAOException("");
+        }
+
+    }
     
     
 }
