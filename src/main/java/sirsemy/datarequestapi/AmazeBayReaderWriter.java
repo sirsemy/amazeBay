@@ -8,18 +8,14 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import org.apache.commons.net.ftp.FTPClient;
+
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.*;
-import org.apache.commons.net.ftp.FTPClient;
 
 /** @author Sirsemy
  */
@@ -37,7 +33,7 @@ public class AmazeBayReaderWriter {
     private Map<Listing, String> invalidList = new HashMap<>();
     private List<String> countingResult = new ArrayList<>();
     private List<MonthlyQuery> monthlyQuery = new ArrayList<>();
-    List<String> allBest = new ArrayList<>();
+    private List<String> allBest = new ArrayList<>();
     private String bestListerResult;
     
 
