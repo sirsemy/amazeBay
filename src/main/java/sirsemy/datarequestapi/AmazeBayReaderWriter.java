@@ -1,12 +1,8 @@
 package sirsemy.datarequestapi;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
-import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.apache.commons.net.ftp.FTPClient;
 
@@ -23,7 +19,6 @@ public class AmazeBayReaderWriter {
     private HttpURLConnection httpConn;
     private URL listingUrl;
     private URL locationUrl;
-    private PrintWriter jsonWriter;
     private Properties prop;
     private FTPClient client = new FTPClient();
     private FileInputStream fis = null;
@@ -33,7 +28,6 @@ public class AmazeBayReaderWriter {
     private Map<Listing, String> invalidList = new HashMap<>();
     private List<String> countingResult = new ArrayList<>();
     private List<MonthlyQuery> monthlyQuery = new ArrayList<>();
-    private List<String> allBest = new ArrayList<>();
     private String bestListerResult;
     
 
@@ -110,6 +104,7 @@ public class AmazeBayReaderWriter {
                 wholeListingTable.add(wholeListing);
                 oneListing.removeAll(oneListing);
             }
+            httpConn.disconnect();
         } catch (FileNotFoundException | JsonGenerationException ex) {
             throw new ListingDAOException(ex);
         } catch (IOException ex) {
@@ -130,6 +125,7 @@ public class AmazeBayReaderWriter {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode root = mapper.readTree(locationUrl);
             wholeLocationTable = root.findValuesAsText("id");
+            httpConn.disconnect();
         } catch (FileNotFoundException ex) {
             throw new ListingDAOException(ex);
         } catch (IOException ex) {
@@ -184,18 +180,6 @@ public class AmazeBayReaderWriter {
                     pstmt.setDate(10, null);
                 pstmt.setString(11, writeThrough.getOwnerEmailAddress());
                 pstmt.executeUpdate();
-//                pstmt.executeUpdate("INSERT INTO listing (id, title, description,"
-//                + "location_id, listing_price, currency, quantity,"
-//                + " listing_status, marketplace, upload_time, owner_email_address)"
-//                + " VALUES (unhex(replace('" + writeThrough.getId() + "','-',''))"
-//                + ", QUOTE('" + writeThrough.getTitle() + "'), QUOTE('" + writeThrough.getDescription() + 
-//                "'), unhex(replace('" + writeThrough.getLocationId() + "','-',''))"
-//                + ", " + writeThrough.getListingPrice() + ", '" + writeThrough
-//                .getCurrency() + "', " + writeThrough.getQuantity() 
-//                + ", " + writeThrough.getListingStatus() + ", " + writeThrough
-//                .getMarketplace() + ", '" + (writeThrough.getUploadTime() != null ?
-//                        Date.valueOf(writeThrough.getUploadTime()) : "null")
-//                + "', '" + writeThrough.getOwnerEmailAddress() + "')");
             }
         } catch (SQLException e) {
             throw new ListingDAOException("Error in the database connection."
@@ -273,30 +257,20 @@ public class AmazeBayReaderWriter {
         try {
             ObjectMapper mapper = new ObjectMapper();
             File file = new File(prop.getProperty("Filename.report"));
-            JsonNode root = mapper.readTree(file);
-            root = mapper.createArrayNode();
-            if (root.isNull()) {
-                throw new ListingDAOException("The jsonWriter() root is null.");
-            } else {
-                ObjectNode commonReport = ((ArrayNode)root).addObject();
-                commonReport.put("total_listing_count", countingResult.get(0));
-                commonReport.put("eBay_listing_count", countingResult.get(1));
-                commonReport.put("total_eBay_price", countingResult.get(2));
-                commonReport.put("avarage_eBay_price", countingResult.get(3));
-                commonReport.put("amazon_listing_count", countingResult.get(4));
-                commonReport.put("total_amazon_price", countingResult.get(5));
-                commonReport.put("avarage_amazon_price", countingResult.get(6));
 
-                commonReport.put("best_lister", bestListerResult);
-                mapper.writerWithDefaultPrettyPrinter()
-                        .writeValue(file, root);
-                
-                ObjectMapper monthlyMapper = new ObjectMapper();
-                monthlyMapper.enable(SerializationFeature.INDENT_OUTPUT);
-                ObjectWriter writer = monthlyMapper.writer(new DefaultPrettyPrinter());
-            
-                writer.writeValue(new FileOutputStream(prop.getProperty("Filename.report"), true), monthlyQuery);
-            }
+            ObjectNode commonReport = mapper.createObjectNode();
+            commonReport.put("total_listing_count", countingResult.get(0));
+            commonReport.put("eBay_listing_count", countingResult.get(1));
+            commonReport.put("total_eBay_price", countingResult.get(2));
+            commonReport.put("avarage_eBay_price", countingResult.get(3));
+            commonReport.put("amazon_listing_count", countingResult.get(4));
+            commonReport.put("total_amazon_price", countingResult.get(5));
+            commonReport.put("avarage_amazon_price", countingResult.get(6));
+
+            commonReport.put("best_lister", bestListerResult);
+
+            mapper.writerWithDefaultPrettyPrinter().writeValue(file, commonReport);
+            mapper.writerWithDefaultPrettyPrinter().writeValue(new FileOutputStream(file, true), monthlyQuery);
         } catch (JsonGenerationException | FileNotFoundException ex) {
             throw new ListingDAOException(ex);
         } catch (IOException ex) {
@@ -321,11 +295,10 @@ public class AmazeBayReaderWriter {
     
     public void streamCloser() throws ListingDAOException{
         try {
-            if (jsonWriter != null)
-               jsonWriter.close();
             if (fis != null)
                 fis.close();
             client.disconnect();
+            System.out.flush();
         } catch (IOException ex) {
             throw new ListingDAOException(ex);
         }
@@ -342,10 +315,6 @@ public class AmazeBayReaderWriter {
 
     public URL getListingUrl() {
         return listingUrl;
-    }
-
-    public PrintWriter getJsonWriter() {
-        return jsonWriter;
     }
 
     public FTPClient getClient() {
