@@ -1,5 +1,8 @@
 package sirsemy.datarequestapi;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -13,6 +16,9 @@ public class Listing {
     private Double listingPrice;
     private String currency;
     private Integer quantity, listingStatus, marketplace;
+
+    @JsonProperty("uploadTime")
+    @JsonDeserialize(converter = dateConverter())
     private LocalDate uploadTime;
     private String ownerEmailAddress;
 
