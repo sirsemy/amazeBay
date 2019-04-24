@@ -1,16 +1,13 @@
 package sirsemy.datarequest.test;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.*;
 import org.junit.*;
-import static org.junit.Assert.*;
 import sirsemy.datarequestapi.Listing;
 import sirsemy.datarequestapi.ListingDAOException;
 import sirsemy.datarequestapi.ListingValidator;
+import java.io.*;
+import java.util.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 /**
  *
@@ -43,45 +40,24 @@ public class ListingValidatorTest {
         }
     }
 
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
-    @Before
-    public void setUp() throws ListingDAOException {
-//        testList.add(new Listing(FIRSTID,  title, description, SECONDID,
-//                listingPrice, currency, 41, 3, 2, uploadTime, emailAddress));
-//        testList.add(new Listing("1346243f-34d4-42e2-b728-0ac3e72a59f0",
-//                "Apetalous Catchfly", "Silene uralensis",
-//                "1d551b07-fd16-4760-88a3-4aa4fda13a2b", 512.14, "GBP", 45, 1, 1,
-//                "9/17/2017", "jgwang@aol.com"));
-//        testList.add(new Listing("b0e87ab4-2c54-4544-8ca4-d60a3d500a65",
-//                "Pseudobryum Moss", "Pseudobryum",
-//                "5249f33c-fadf-44d9-ab70-471df29c20a6", 589.53, "HUF", 4, 3, 2,
-//                "11/21/2018", "crobles@yahoo.com"));
-    }
-
     @After
-    public void tearDown() throws ListingDAOException {
+    public void tearDown() {
         testList.removeAll(testList);
         testLocation.removeAll(testLocation);
         System.out.flush();
-//        try (PrintWriter logWriter = new PrintWriter(new FileWriter(prop
-//                .getProperty("Filename.testLog")))) {
-//            logWriter.print("");
-//        } catch (IOException ex) {
-//            throw new ListingDAOException("Error during the writing of " + 
-//                    prop.getProperty("Filename.testLog") + " file");
-//        }
     }
 
     public void writeToTestLog() throws ListingDAOException {
         try (PrintWriter logWriter = new PrintWriter(new FileWriter(prop
                 .getProperty("Filename.testLog")))) {
             for (Map.Entry<Listing, String> par : invalidList.entrySet()) {
-                logWriter.println(par.getKey().getId() + ";" 
-                    + (par.getKey().getMarketplace() == 1 ? "EBAY" : "AMAZON")
-                    + ";" + par.getValue());
+                if (par.getKey().getMarketplace() != null) {
+                    logWriter.println(par.getKey().getId() + ";"
+                            + (par.getKey().getMarketplace() == 1 ? "EBAY" : "AMAZON")
+                            + ";" + par.getValue());
+                } else
+                    logWriter.println(par.getKey().getId() + ";"
+                            + "null" + ";" + par.getValue());
             }
         } catch (IOException ex) {
             throw new ListingDAOException("Error during the writing of 'testLog.csv' file");
@@ -165,31 +141,18 @@ public class ListingValidatorTest {
     }
     
     @Test
-    public void invalidTitleTest() throws ListingDAOException, InterruptedException {
+    public void invalidTitleTest() throws ListingDAOException {
         testList.add(new Listing(FIRSTID, "null", description,
                 SECONDID, listingPrice, currency, 41, 3, 2, uploadTime, emailAddress));
         ListingValidator listVal = new ListingValidator(testList, testLocation);
         invalidList = listVal.getListToLogFile();
-//        ExecutorService es = Executors.newCachedThreadPool();
-//        es.execute(() -> {
-//            try {
-//                writeToTestLog();
-//            } catch (ListingDAOException ex) {
-//                Logger.getLogger(ListingValidatorTest.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        });
-//        es.shutdown();
         writeToTestLog();
         try (BufferedReader logReader = new BufferedReader(new FileReader(prop
                 .getProperty("Filename.testLog")))) {
-//            es.awaitTermination(10, TimeUnit.SECONDS);
-//            latch.countDown();
             String line = logReader.readLine();
             assertNotNull("The log file is empty.", line);
         } catch (IOException ex) {
             throw new ListingDAOException("Error during the file opening.");
-//        } catch (InterruptedException ex) {
-//            throw new ListingDAOException("The current thread have been interrupted.");
         }
     }
     
@@ -449,21 +412,21 @@ public class ListingValidatorTest {
         }
     }
     
-//    @Test
-//    public void invalidMarketplaceNullTest() throws ListingDAOException {
-//        testList.add(new Listing(FIRSTID, title, description, SECONDID,
-//                listingPrice, currency, 12, 2, null, uploadTime, emailAddress));
-//        ListingValidator listVal = new ListingValidator(testList, testLocation);
-//        invalidList = listVal.getListToLogFile();
-//        writeToTestLog();
-//        try (BufferedReader logReader = new BufferedReader(new FileReader(prop
-//                .getProperty("Filename.testLog")))) {
-//            String line = logReader.readLine();
-//            assertNotNull("The log file is empty.", line);
-//        } catch (IOException ex) {
-//            throw new ListingDAOException("Error during the file opening.");
-//        }
-//    }
+    @Test
+    public void invalidMarketplaceNullTest() throws ListingDAOException {
+        testList.add(new Listing(FIRSTID, title, description, SECONDID,
+                listingPrice, currency, 12, 2, null, uploadTime, emailAddress));
+        ListingValidator listVal = new ListingValidator(testList, testLocation);
+        invalidList = listVal.getListToLogFile();
+        writeToTestLog();
+        try (BufferedReader logReader = new BufferedReader(new FileReader(prop
+                .getProperty("Filename.testLog")))) {
+            String line = logReader.readLine();
+            assertNotNull("The log file is empty.", line);
+        } catch (IOException ex) {
+            throw new ListingDAOException("Error during the file opening.");
+        }
+    }
     
     @Test
     public void invalidMarketplaceReference1Test() throws ListingDAOException {

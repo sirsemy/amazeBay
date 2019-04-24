@@ -1,19 +1,22 @@
 package sirsemy.datarequest.test;
 
-import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.sql.*;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
-import java.util.Scanner;
 import org.apache.commons.net.ftp.FTPClient;
-import org.junit.*;
-import static org.junit.Assert.*;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import sirsemy.datarequestapi.AmazeBayReaderWriter;
 import sirsemy.datarequestapi.Listing;
 import sirsemy.datarequestapi.ListingDAOException;
+
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.sql.Date;
+import java.sql.*;
+import java.util.*;
+
+import static org.junit.Assert.*;
 
 /**
  *
@@ -22,11 +25,11 @@ import sirsemy.datarequestapi.ListingDAOException;
 public class AmazeBayReaderWriterTest {
     private static AmazeBayReaderWriter amazeBay;
     private static PrintWriter logWriter, jsonWriter;
-    private static BufferedReader jsonReader;
+    private static BufferedReader logReader, jsonReader;
     private static Properties prop;
-    private static Connection dataBaseConn;
     private static FTPClient client = new FTPClient();
     private static FileInputStream fis = null;
+    private static Connection dataBaseConn;
     private static final String FIRSTID = "813f23e4-a029-4ea7-b95c-0020ea60aa1c";
     private static final String SECONDID = "0fe479bb-fe39-4265-b59f-bb4ac5a060d4";
     private static final String THIRDID = "37c6000b-d199-4ea0-949b-2faa5773309a";
@@ -48,8 +51,14 @@ public class AmazeBayReaderWriterTest {
             logWriter = new PrintWriter(new FileWriter(prop.getProperty("Filename.testLog"), true));
         } catch (IOException ex) {
             throw new ListingDAOException("Error during the writing of 'testLog.csv' file");
-        } 
-        
+        }
+
+        try {
+            logReader = new BufferedReader(new FileReader(prop.getProperty("Filename.testLog")));
+        } catch (IOException ex) {
+            throw new ListingDAOException("Error during the writing of 'testLog.csv' file");
+        }
+
         try {
             jsonWriter = new PrintWriter(new FileWriter(prop.getProperty("Filename.testReport"), true));
         } catch (IOException ex) {
@@ -91,6 +100,13 @@ public class AmazeBayReaderWriterTest {
                 jsonReader.close();
             } catch (IOException e) {
                 throw new ListingDAOException("Error during the close of 'testReport.json' file.");
+            }
+        }
+        if (logReader != null) {
+            try {
+                logReader.close();
+            } catch (IOException e) {
+                throw new ListingDAOException("Error during the close of 'testLog.csv' file.");
             }
         }
         if (dataBaseConn != null) {
@@ -300,28 +316,28 @@ public class AmazeBayReaderWriterTest {
         }
     }
     
-//    @Test
-//    public void readWriteLogFileColumnsTest() throws ListingDAOException {
-//        logWriter.println("#ListingId;MarketplaceName;InvalidField");
-//        logWriter.println("813f23e4-a029-4ea7-b95c-0020ea60aa1c;"
-//                + "eBay;quantity");
-//        logWriter.flush();
-//        try {
-//            String line;
-//            List<String> lineStock = new ArrayList<>();
-//            while ((line = logReader.readLine()) != null){
-//                if (line.startsWith("#", 0))
-//                    continue;
-//                StringTokenizer separator = new StringTokenizer(line, ";");
-//                while (separator.hasMoreTokens()) {
-//                    lineStock.add(separator.nextToken());
-//                }
-//            }
-//            assertEquals("There isn't 3 columns", true, lineStock.size() == 3);
-//        } catch (IOException ex) {
-//            throw new ListingDAOException("Error during the file opening.");
-//        }
-//    }
+    @Test
+    public void readWriteLogFileColumnsTest() throws ListingDAOException {
+        logWriter.println("#ListingId;MarketplaceName;InvalidField");
+        logWriter.println("813f23e4-a029-4ea7-b95c-0020ea60aa1c;"
+                + "eBay;quantity");
+        logWriter.flush();
+        try {
+            String line;
+            List<String> lineStock = new ArrayList<>();
+            while ((line = logReader.readLine()) != null){
+                if (line.startsWith("#", 0))
+                    continue;
+                StringTokenizer separator = new StringTokenizer(line, ";");
+                while (separator.hasMoreTokens()) {
+                    lineStock.add(separator.nextToken());
+                }
+            }
+            assertEquals("There isn't 3 columns", true, lineStock.size() == 3);
+        } catch (IOException ex) {
+            throw new ListingDAOException("Error during the file opening.");
+        }
+    }
     
     @Test
     public void writeIntoReportFileTest() throws ListingDAOException {
@@ -342,45 +358,43 @@ public class AmazeBayReaderWriterTest {
         try {
             ResultSet rs = insertData.executeQuery("SELECT * FROM amazebay.listing");
             assertNotNull("Wrong database data upload.", rs);
+            rs.close();
         } catch (SQLException ex) {
             throw new ListingDAOException("Error in the database connection.");
         }
     }
     
-//    @Test
-//    public void readFromDataBaseTest() throws ListingDAOException {
-//        try (Statement stmt = dataBaseConn.createStatement()) {
-//            stmt.executeUpdate("INSERT INTO amazebay.listing (id, title, description,"
-//                + "location_id, listing_price, currency, quantity,"
-//                + " listing_status, marketplace, upload_time, owner_email_address)"
-//                + " VALUES (unhex(replace('" + FIRSTID + "','-','')), 'Slender Wild', 'Caulanthus major',"
-//                + " unhex(replace('" + FIRSTID + "','-','')), 526.45, 'USD', 24, 2, 1, '2017-11-05',"
-//                + " 'wkrebs@comcast.net')");
-//            ResultSet rs = stmt.executeQuery("SELECT id FROM amazebay.listing");
-//            while (rs.next()) {
-//                System.out.println(rs.getString("szemely")+" "+rs.getString("email"));
-//            }
-//            rs.close();
-//            assertNotNull("Wrong database data upload.", stmt.
-//                    executeUpdate("SELECT * FROM amazebay.listing"));
-//        } catch (SQLException e) {
-//            throw new ListingDAOException("Error in the database connection.");
-//        }
-//    }
+    @Test
+    public void readFromDataBaseTest() throws ListingDAOException {
+        uploadToDataBase();
+        try {
+            ResultSet rs = insertData.executeQuery("SELECT * FROM amazebay.listing");
+            while (rs.next()) {
+                System.out.println(rs.getString("title")+" "+rs.getString("owner_email_address"));
+            }
+            assertNotNull("Wrong database data upload.", rs);
+            rs.close();
+        } catch (SQLException e) {
+            throw new ListingDAOException("Error in the database connection.");
+        }
+    }
     
-//    @Test
-//    public void uploadFileToFtpTest(){
-//        try {
-//            String filename = prop.getProperty("testReport.json");
-//            fis = new FileInputStream(filename);
-//            client.storeFile(filename, fis);
-//            assertEquals("The file isn't on the FTP.", "213-STAT 213 End. ", client
-//                    .getStatus(prop.getProperty("FTPurl") + "/testReport.json"));
-//        } catch (IOException e) {
-//            throw new ListingDAOException("");
-//        }
-//        
-//    }
+    @Test
+    public void uploadFileToFtpTest() throws ListingDAOException {
+        AmazeBayReaderWriter testRW = new AmazeBayReaderWriter("properties.ini");
+        String fileName = prop.getProperty("Filename.testLog");
+        try (PrintWriter prw = new PrintWriter(new FileWriter(fileName))) {
+            prw.print("It needs some content.");
+            prw.flush();
+            testRW.uploadToFtp(fileName);
+            client.connect(prop.getProperty("FTPurl"));
+            client.login(prop.getProperty("FTPusername"), prop.getProperty("FTPpassword"));
+            assertTrue(client.deleteFile(fileName));
+        } catch (IOException e) {
+            throw new ListingDAOException("");
+        }
+
+    }
     
     
 }

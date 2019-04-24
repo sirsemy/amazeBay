@@ -14,7 +14,7 @@ public class Main {
             dataBase.uploadToDataBase();
             dataBase.queries();
             dataBase.jsonWriter();
-            dataBase.uploadToFtp();
+            dataBase.uploadToFtp("report.json");
             dataBase.streamCloser();
         } catch (ListingDAOException ex) {
             System.out.println(ex.getMessage());
