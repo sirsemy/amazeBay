@@ -1,5 +1,9 @@
 package sirsemy.datarequestapi;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -13,16 +17,21 @@ public class Listing {
     private Double listingPrice;
     private String currency;
     private Integer quantity, listingStatus, marketplace;
+
+    @JsonDeserialize(using = MyCustomDeserializer.class)
     private LocalDate uploadTime;
     private String ownerEmailAddress;
 
     public Listing(){
     }
-    
-    public Listing(String id, String title, String description, String location_id
-            , Double listingPrice, String currency, Integer quantity
-            , Integer listingStatus, Integer marketplace, String uploadTime
-            , String ownerEmailAddress) throws ListingDAOException {
+
+    @JsonCreator
+    public Listing(@JsonProperty("id") String id, @JsonProperty("title") String title
+            , @JsonProperty("desciption") String description, @JsonProperty("location_id") String location_id
+            , @JsonProperty("listing_price") Double listingPrice, @JsonProperty("currency") String currency
+            , @JsonProperty("quantity") Integer quantity, @JsonProperty("listing_status") Integer listingStatus
+            , @JsonProperty("marketplace") Integer marketplace, @JsonProperty("upload_time") String uploadTime
+            , @JsonProperty("owner_email_address") String ownerEmailAddress) throws ListingDAOException {
         this.id = id;
         this.title = title;
         this.description = description;
