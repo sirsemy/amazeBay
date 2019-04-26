@@ -68,42 +68,9 @@ public class AmazeBayReaderWriter {
         }
         urlConnection();
         try {
-            ObjectMapper mapper = new ObjectMapper();
-            JsonNode root = mapper.readTree(listingUrl);
-            List<String> takeId = root.findValuesAsText("id");
-            List<String> takeTitle = root.findValuesAsText("title");
-            List<String> takeDescription = root.findValuesAsText("description");
-            List<String> takeLocationId = root.findValuesAsText("location_id");
-            List<String> takeListingPrice = root.findValuesAsText("listing_price");
-            List<String> takeCurrency = root.findValuesAsText("currency");
-            List<String> takeQuantity = root.findValuesAsText("quantity");
-            List<String> takeListingStatus = root.findValuesAsText("listing_status");
-            List<String> takeMarketplace = root.findValuesAsText("marketplace");
-            List<String> takeUploadTime = root.findValuesAsText("upload_time");
-            List<String> takeOwnerEmailAddress = root.findValuesAsText("owner_email_address");
-            for (int i = 0; i < Integer.valueOf(prop
-                    .getProperty("APItable.listing.size")); i++) {
-                List<String> oneListing = new ArrayList<>();
-                oneListing.add(takeId.get(i));
-                oneListing.add(takeTitle.get(i));
-                oneListing.add(takeDescription.get(i));
-                oneListing.add(takeLocationId.get(i));
-                oneListing.add(takeListingPrice.get(i));
-                oneListing.add(takeCurrency.get(i));
-                oneListing.add(takeQuantity.get(i));
-                oneListing.add(takeListingStatus.get(i));
-                oneListing.add(takeMarketplace.get(i));
-                oneListing.add(takeUploadTime.get(i));
-                oneListing.add(takeOwnerEmailAddress.get(i));
-                Listing wholeListing = new Listing(oneListing.get(0),
-                    oneListing.get(1), oneListing.get(2), oneListing.get(3),
-                    Double.valueOf(oneListing.get(4)), oneListing.get(5),
-                    Integer.valueOf(oneListing.get(6)), Integer.valueOf(oneListing.get(7)),
-                    Integer.valueOf(oneListing.get(8)), oneListing.get(9),
-                    oneListing.get(10));
-                wholeListingTable.add(wholeListing);
-                oneListing.removeAll(oneListing);
-            }
+            ObjectMapper objectMapper = new ObjectMapper();
+            Listing[] preListing = objectMapper.readValue(listingUrl, Listing[].class);
+            wholeListingTable = new ArrayList<>(Arrays.asList(preListing));
             httpConn.disconnect();
         } catch (FileNotFoundException | JsonGenerationException ex) {
             throw new ListingDAOException(ex);
